@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170608183720) do
+ActiveRecord::Schema.define(version: 20170608184444) do
+
+  create_table "spaces", force: :cascade do |t|
+    t.string   "name"
+    t.string   "classification"
+    t.string   "url"
+    t.string   "photograph"
+    t.string   "city"
+    t.string   "neighborhood"
+    t.string   "visit_status"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -28,6 +40,13 @@ ActiveRecord::Schema.define(version: 20170608183720) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "visits", force: :cascade do |t|
+    t.integer  "space_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

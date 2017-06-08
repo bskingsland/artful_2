@@ -1,0 +1,91 @@
+<!-- Validation failure messages -->
+<% if @space.errors.any? %>
+  <% @space.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Space #<%= @space.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_space/<%= @space.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @space.name %>">
+      </div>
+
+      <!-- Label and input for classification -->
+      <div class="form-group">
+        <label for="classification" class="control-label">
+          Classification
+        </label>
+
+        <input type="text" id="classification" name="classification" placeholder="Classification" class="form-control" value="<%= @space.classification %>">
+      </div>
+
+      <!-- Label and input for url -->
+      <div class="form-group">
+        <label for="url" class="control-label">
+          Url
+        </label>
+
+        <input type="text" id="url" name="url" placeholder="Url" class="form-control" value="<%= @space.url %>">
+      </div>
+
+      <!-- Label and input for photograph -->
+      <div class="form-group">
+        <label for="photograph" class="control-label">
+          Photograph
+        </label>
+
+        <input type="text" id="photograph" name="photograph" placeholder="Photograph" class="form-control" value="<%= @space.photograph %>">
+      </div>
+
+      <!-- Label and input for city -->
+      <div class="form-group">
+        <label for="city" class="control-label">
+          City
+        </label>
+
+        <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= @space.city %>">
+      </div>
+
+      <!-- Label and input for neighborhood -->
+      <div class="form-group">
+        <label for="neighborhood" class="control-label">
+          Neighborhood
+        </label>
+
+        <input type="text" id="neighborhood" name="neighborhood" placeholder="Neighborhood" class="form-control" value="<%= @space.neighborhood %>">
+      </div>
+
+      <!-- Label and input for visit_status -->
+      <div class="form-group">
+        <label for="visit_status" class="control-label">
+          Visit status
+        </label>
+
+        <input type="text" id="visit_status" name="visit_status" placeholder="Visit status" class="form-control" value="<%= @space.visit_status %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Space
+      </button>
+      or
+      <a href="/spaces/<%= @space.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

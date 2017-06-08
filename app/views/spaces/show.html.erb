@@ -1,0 +1,43 @@
+<div class="page-header">
+  <h3>Space #<%= @space.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Name</dt>
+      <dd><%= @space.name %></dd>
+
+      <dt>Classification</dt>
+      <dd><%= @space.classification %></dd>
+
+      <dt>Url</dt>
+      <dd><%= @space.url %></dd>
+
+      <dt>Photograph</dt>
+      <dd><%= @space.photograph %></dd>
+
+      <dt>City</dt>
+      <dd><%= @space.city %></dd>
+
+      <dt>Neighborhood</dt>
+      <dd><%= @space.neighborhood %></dd>
+
+      <dt>Visit status</dt>
+      <dd><%= @space.visit_status %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/spaces" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/spaces/<%= @space.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_space/<%= @space.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

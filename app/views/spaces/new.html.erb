@@ -33,7 +33,12 @@
           Classification
         </label>
 
-        <input type="text" id="classification" name="classification" placeholder="Classification" class="form-control" value="<%= @space.classification %>">
+        <select class="form-control" name="classification">
+          <option value="museum">Museum</option>
+          <option value="gallery">Gallery</option>
+          <option value="public art">Public Art</option>
+        </select>
+
       </div>
 
       <!-- Label and input for url -->
@@ -78,7 +83,11 @@
           Visit status
         </label>
 
-        <input type="text" id="visit_status" name="visit_status" placeholder="Visit status" class="form-control" value="<%= @space.visit_status %>">
+        <select class="form-control" name="visit_status">
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+
       </div>
 
       <button class="btn btn-success">

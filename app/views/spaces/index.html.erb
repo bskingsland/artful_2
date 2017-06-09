@@ -23,15 +23,15 @@
         <td><%= space.name %></td>
         <td><%= space.classification %></td>
         <td><%= space.url %></td>
-        <td><%= space.photograph %></td>
+        <td><img height="200" src="<%= space.photograph %>"></td>
         <td><%= space.city %></td>
         <td><%= space.neighborhood %></td>
         <td>
           <a href="/spaces/<%= space.id %>" class="btn btn-primary">Show</a>
           <a href="/spaces/<%= space.id %>/edit" class="btn btn-warning">Edit</a>
 
-        <% if current_user.visits.include?(space) %>
-        <% else %>
+          <% if current_user.visits.pluck(:space_id).include?(space.id) %>
+          <% else %>
 
         <form action="/create_visit" method="post">
           <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token %>">

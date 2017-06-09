@@ -32,9 +32,11 @@
       <a href="/spaces/<%= @space.id %>/edit" class="btn btn-warning">
         Edit
       </a>
+      <% if current_user.visits.pluck(:space_id).include?(@space.id) %>
+      <% else %>
       <a href="/visits/<%= @space.id %>" class="btn btn-info" rel="nofollow">
         Mark as Visited
-      </a>
+      </a> <% end %>
       <a href="/delete_space/<%= @space.id %>" class="btn btn-danger" rel="nofollow">
         Delete
       </a>

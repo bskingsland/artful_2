@@ -2,7 +2,6 @@ class Space < ApplicationRecord
 
 has_many :visits, :dependent => :destroy
 has_many :users, :through => :visits, :source => :user
-validates :visit_status, :presence => true
 validates :neighborhood, :presence => true
 validates :name, :presence => true
 validates :name, :uniqueness => true

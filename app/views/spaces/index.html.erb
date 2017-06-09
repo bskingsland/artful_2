@@ -15,7 +15,6 @@
         <th>Photograph</th>
         <th>City</th>
         <th>Neighborhood</th>
-        <th>Visit status</th>
         <th>Actions</th>
       </tr>
 
@@ -27,10 +26,25 @@
         <td><%= space.photograph %></td>
         <td><%= space.city %></td>
         <td><%= space.neighborhood %></td>
-        <td><%= space.visit_status %></td>
         <td>
           <a href="/spaces/<%= space.id %>" class="btn btn-primary">Show</a>
           <a href="/spaces/<%= space.id %>/edit" class="btn btn-warning">Edit</a>
+
+        <% if current_user.visits.include?(space) %>
+        <% else %>
+
+        <form action="/create_visit" method="post">
+          <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token %>">
+          <input type="hidden" name="user_id" value="<%= current_user.id %>">
+          <input type="hidden" name="space_id" value="<%=space.id%>">
+
+          <button class="btn btn-success">
+            Mark as Visited
+          </button>
+        </form>
+
+        <% end %>
+
           <a href="/delete_space/<%= space.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>
       </tr>

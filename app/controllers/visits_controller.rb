@@ -1,25 +1,18 @@
 class VisitsController < ApplicationController
   def index
     @visits = Visit.all
-
-    render("visits/index.html.erb")
   end
 
   def show
     @visit = Visit.find(params[:id])
-
-    render("visits/show.html.erb")
   end
 
   def new
     @visit = Visit.new
-
-    render("visits/new.html.erb")
   end
 
   def create
     @visit = Visit.new
-
     @visit.space_id = params[:space_id]
     @visit.user_id = params[:user_id]
 
@@ -34,8 +27,6 @@ class VisitsController < ApplicationController
 
   def edit
     @visit = Visit.find(params[:id])
-
-    render("visits/edit.html.erb")
   end
 
   def update
@@ -64,4 +55,6 @@ class VisitsController < ApplicationController
       redirect_to(:back, :notice => "Visit deleted.")
     end
   end
+
+
 end

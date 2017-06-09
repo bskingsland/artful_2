@@ -1,13 +1,3 @@
-<!-- Validation failure messages -->
-<% if @visit.errors.any? %>
-  <% @visit.errors.full_messages.each do |message| %>
-    <div class="alert alert-dismissable alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= message %>
-    </div>
-  <% end %>
-<% end %>
-
 <div class="page-header">
   <h3>Edit Visit #<%= @visit.id %></h3>
 </div>
@@ -18,15 +8,6 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for space_id -->
-      <div class="form-group">
-        <label for="space_id" class="control-label">
-          Space
-        </label>
-
-        <input type="text" id="space_id" name="space_id" placeholder="Space" class="form-control" value="<%= @visit.space_id %>">
-      </div>
-
       <!-- Label and input for user_id -->
       <div class="form-group">
         <label for="user_id" class="control-label">
@@ -34,6 +15,15 @@
         </label>
 
         <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @visit.user_id %>">
+      </div>
+
+      <!-- Label and input for space_id -->
+      <div class="form-group">
+        <label for="space_id" class="control-label">
+          Space
+        </label>
+
+        <input type="text" id="space_id" name="space_id" placeholder="Space" class="form-control" value="<%= @visit.space_id %>">
       </div>
 
       <button class="btn btn-warning">

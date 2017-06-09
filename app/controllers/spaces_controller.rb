@@ -26,7 +26,6 @@ class SpacesController < ApplicationController
     @space.photograph = params[:photograph]
     @space.city = params[:city]
     @space.neighborhood = params[:neighborhood]
-    @space.visit_status = params[:visit_status]
 
     save_status = @space.save
 
@@ -52,7 +51,6 @@ class SpacesController < ApplicationController
     @space.photograph = params[:photograph]
     @space.city = params[:city]
     @space.neighborhood = params[:neighborhood]
-    @space.visit_status = params[:visit_status]
 
     save_status = @space.save
 

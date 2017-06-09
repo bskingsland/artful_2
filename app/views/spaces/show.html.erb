@@ -23,9 +23,6 @@
       <dt>Neighborhood</dt>
       <dd><%= @space.neighborhood %></dd>
 
-      <dt>Visit status</dt>
-      <dd><%= @space.visit_status %></dd>
-
     </dl>
 
     <div class="btn-group btn-group-justified">
@@ -35,9 +32,13 @@
       <a href="/spaces/<%= @space.id %>/edit" class="btn btn-warning">
         Edit
       </a>
+      <a href="/visits/<%= @space.id %>" class="btn btn-info" rel="nofollow">
+        Mark as Visited
+      </a>
       <a href="/delete_space/<%= @space.id %>" class="btn btn-danger" rel="nofollow">
         Delete
       </a>
+
     </div>
   </div>
 </div>
